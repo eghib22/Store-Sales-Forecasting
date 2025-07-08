@@ -3,16 +3,14 @@
 დავსპლიტეთ დამერჯილი დატასეტი. ვჰენდლავთ Nan ველიუებს და კატეგორიულები ცვლადები გადაგვყავს ნუმერიქალ ცვლადებში.
 
 XGBoost:
-n_estimators: 1000
-verbosity: 1
-wmae: 2840
-
-შევცვალე :
+საუკეთესო შედეგი:
 n_estimators: 2000
+verbosity: 1
 wmae: 2815
-n_estimators: 3000
-verbosity: 2
-wmae: 2826
+ოპტიმიზაციები:
+დავამატე Year, Month, Week, Day, DayOfWeek, IsMonthStart, IsMonthEnd, IsWeekend, და Quarter 
+დავატრენინგე მოდელი y′ = log(Weekly_Sales + 1) და პროგნოზი შევაქციე ამ ფუნქციით exp(y′) - 1, ვარიაციის სტაბილიზაციისთვის.
+პარამეტრების n_estimators, max_depth, learning_rate, subsample, colsample_bytree და min_child_weight სხვადასხვა კომბინაციებიც მოსვინჯე, თუმცა wmae მივიღე 3370. შედეგად ოპტიმიზაციებამდე არსებული მოდელი უკეთეს შედეგს დებდა.
 
 N-BEATS: 
 თავდაპირველი N-BEATS მოდელი early stopping პრობლემას აწყდებოდა 18-ე ეპოქზე, რაც იწვევდა არაოპტიმალურ შედეგებს. ეს იყო patience=10-ის გამოდა ასევე მაღალი learning_rate=0.001-ის გამო.
