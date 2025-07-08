@@ -10,3 +10,9 @@ wmae: 2840
 შევცვალე :
 n_estimators: 2000
 wmae: 2815
+n_estimators: 3000
+verbosity: 2
+wmae: 2826
+
+N-BEATS: 
+თავდაპირველი N-BEATS მოდელი early stopping პრობლემას აწყდებოდა 18-ე ეპოქზე, რაც იწვევდა არაოპტიმალურ შედეგებს. ეს იყო patience=10-ის გამოდა ასევე მაღალი learning_rate=0.001-ის გამო.
