@@ -10,7 +10,7 @@ wmae: 2815
 ოპტიმიზაციები:
 დავამატე Year, Month, Week, Day, DayOfWeek, IsMonthStart, IsMonthEnd, IsWeekend, და Quarter 
 დავატრენინგე მოდელი y′ = log(Weekly_Sales + 1) და პროგნოზი შევაქციე ამ ფუნქციით exp(y′) - 1, ვარიაციის სტაბილიზაციისთვის.
-პარამეტრების n_estimators, max_depth, learning_rate, subsample, colsample_bytree და min_child_weight სხვადასხვა კომბინაციებიც მოსვინჯე, თუმცა wmae მივიღე 3370. შედეგად ოპტიმიზაციებამდე არსებული მოდელი უკეთეს შედეგს დებდა.
+პარამეტრების n_estimators, max_depth, learning_rate, subsample, colsample_bytree და min_child_weight სხვადასხვა კომბინაციებიც მოსვინჯე, თუმცა wmae მივიღე 3370. შედეგად ოპტიმიზაციებამდე არსებული მოდელი უკეთეს შედეგს დებდა. ამიტომ ვცადე randomizedSearchCV, თუმცა შედეგი მაინც არა დამაკმაყოფილებელი იყო და გადავწყვიტე დამემატებინა რეგულარიზაციები. gamma: 0.1, 'reg_alpha': 0.1, 'reg_lambda': 1.0 .(Gamma adds a minimum loss reduction threshold for making a split, discouraging the model from growing branches that don’t contribute substantive improvements, L1 (reg_alpha) and L2 (reg_lambda) penalties shrink coefficient magnitudes and help prevent individual leaves from drifting too far; and by subsampling at the tree‑level, the model sees fewer features per split which further guards against overfitting).
 
 LightGBM:
 n_estimators: 2000, learning_rate: 0.015, num_leaves: 70, max_depth: 14, Wmae: 2773.
